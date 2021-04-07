@@ -7,14 +7,11 @@ public class main {
 
 public static void main(String[] args) throws FileNotFoundException, IOException {
 		// TODO Auto-generated method stub
-		Hit q= new Hit("q");
-		q.sumarHits(2, 4);
 		Game game1= new Game();
 		game1.imprimirReel();
 		String valorAct;
 		int hitTot;
 		int jugada;
-		System.out.print(q.totalHits());
 		for (int i = 0 ; i <game1.tamanioReel(0); i++) {
 		 for(int x=i; i<i+4;x++) {
 			valorAct = game1.getValor(1, i);
@@ -51,6 +48,8 @@ public static void main(String[] args) throws FileNotFoundException, IOException
 			}
 		}
 	}
+	game1.imprimirPremioHits();
+	
 }	
 }
 

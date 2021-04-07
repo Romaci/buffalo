@@ -86,6 +86,11 @@ public void imprimirReel() {
 		}
 	}
 }
+
+public void imprimirPremioHits() {
+	hits.forEach((k,v) -> System.out.println(v.totalHits()));
+	
+}
 private void configReels() {
 	Reel r1=new Reel();
 	Reel r2=new Reel();
@@ -187,3 +192,5 @@ private void configReels() {
 }
 
 }
+
+
