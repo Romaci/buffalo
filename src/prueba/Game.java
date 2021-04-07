@@ -3,57 +3,83 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.LinkedList;
 
 import java.util.List;
 
 public class Game {
-	private List<Hit> hits;
-	private List<List<String>> reels;
+	private HashMap<String, Hit> hits = new HashMap<String, Hit>();
+	private List<Reel> reels;
 
 public Game(String a) throws FileNotFoundException, IOException {
 	this.configHits();
-	this.configReels(a);
+	//this.configReels(a);
 	
 }
 
 private void configHits() {
 	Hit k=new Hit("k");
-	hits.add(k);
+	hits.put("k",k);
 	Hit q=new Hit("Q");
-	hits.add(q);
+	hits.put("q",q);
 	Hit j=new Hit("J");
-	hits.add(j);
+	hits.put("j",j);
 	Hit nueve=new Hit("9");
-	hits.add(nueve);
+	hits.put("9",nueve);
 	Hit diez=new Hit("10");
-	hits.add(diez);
+	hits.put("10",diez);
 	Hit p1=new Hit("P1");
-	hits.add(p1);
+	hits.put("P1",p1);
 	Hit p2=new Hit("P2");
-	hits.add(p2);
-	Hit p3=new Hit("p3");
-	hits.add(p3);
+	hits.put("P2",p2);
+	Hit p3=new Hit("P3");
+	hits.put("P3",p3);
 	
 }
 
-public void configReels(String archivo) throws FileNotFoundException, IOException {
+private void configReels() throws FileNotFoundException, IOException {
+	String archivo = "/Buffalo/src/prueba/reelConfig.txt";
 	FileReader f = new FileReader(archivo);
     BufferedReader b = new BufferedReader(f);
     String valor;
-	for(int i = 1; i<6;i++) {
-		List <String> reel = new LinkedList<String>();
+	for(int i = 0; i<5;i++) {
+		Reel reel = new Reel();
 		while((valor=b.readLine())!=null & b.readLine()!= " "){
-			reel.add(valor);
+			reel.agregarValor(valor);
 		}
 		reels.add(reel);
    }
     b.close();
 }
 
+public Hit hit(String valor) {
+	return hits.get(valor);
+}
+
+public List<String> getReel(int nroReel) {
+	return reels.get(nroReel).reel();
+}
+
+public Reel reel(int nroReel) {
+	return reels.get(nroReel);
+}
+
+public int tamanioReel(int nroReel) {
+	return reels.get(nroReel).tamanioReel();
+}
+
+
+public String getValor(int reel, int pos) {
+	return reels.get(reel).valor(pos);
+}
+
+
+
+
 public void imprimirReel() {
 	for(int i = 0; i<reels.size();i++ ) {
-		List<String> reelAct = reels.get(i);
+		List<String> reelAct = this.getReel(i);
 		System.out.println(String.format("---Reel %d----",i));
 		for(int j = 0; j<reelAct.size();j++ ) {
 			System.out.print(reelAct.get(j));
