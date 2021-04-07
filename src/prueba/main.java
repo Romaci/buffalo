@@ -14,9 +14,10 @@ public static void main(String[] args) throws FileNotFoundException, IOException
 		int jugada;
 		int auxPos;
 		for (int i = 0 ; i <game1.tamanioReel(0); i++) {
+		
 		 for(int x=i; x<i+4;x++) {
 			auxPos = x;
-			if(i==game1.tamanioReel(0)-1) {
+			if(x>(game1.tamanioReel(0)-1)) {
 				auxPos = (game1.tamanioReel(0)-x)*-1;
 			}
 			valorAct = game1.getValor(0, auxPos);
