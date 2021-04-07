@@ -12,9 +12,14 @@ public static void main(String[] args) throws FileNotFoundException, IOException
 		String valorAct;
 		int hitTot;
 		int jugada;
+		int auxPos;
 		for (int i = 0 ; i <game1.tamanioReel(0); i++) {
-		 for(int x=i; x<x+4;x++) {
-			valorAct = game1.getValor(0, x);
+		 for(int x=i; x<i+4;x++) {
+			auxPos = x;
+			if(i==game1.tamanioReel(0)-1) {
+				auxPos = (game1.tamanioReel(0)-x)*-1;
+			}
+			valorAct = game1.getValor(0, auxPos);
 			hitTot = 1;
 			jugada = 1;
 			for(int j=0; j < game1.tamanioReel(1); j++) {
@@ -34,7 +39,7 @@ public static void main(String[] args) throws FileNotFoundException, IOException
 										if(game1.reel(1).cantCoincidencias(valorAct,m)>0) {
 											hitTot*=game1.reel(1).cantCoincidencias(valorAct,m);
 											jugada=5;
-											game1.hit(valorAct).sumarHits(jugada, hitTot);//NO ME DEVUELVE EL HIT QUE QUIERO BUSCAR CON LA KEY QUE EL MANDO 
+											game1.hit("Q").sumarHits(jugada, hitTot);//NO ME DEVUELVE EL HIT QUE QUIERO BUSCAR CON LA KEY QUE EL MANDO 
 										}
 									}
 									game1.hit(valorAct).sumarHits(jugada, hitTot);

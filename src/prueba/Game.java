@@ -19,12 +19,12 @@ public Game() throws FileNotFoundException, IOException {
 }
 
 private void configHits() {
-	Hit k=new Hit("k");
-	hits.put("k",k);
+	Hit k=new Hit("K");
+	hits.put("K",k);
 	Hit q=new Hit("Q");
-	hits.put("q",q);
+	hits.put("Q",q);
 	Hit j=new Hit("J");
-	hits.put("j",j);
+	hits.put("J",j);
 	Hit nueve=new Hit("9");
 	hits.put("9",nueve);
 	Hit diez=new Hit("10");
