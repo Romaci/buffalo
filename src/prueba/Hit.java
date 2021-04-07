@@ -29,7 +29,9 @@ public String totalHits() {
 	}
 	return total;
 }
-	
+public void imprimirData() {
+	System.out.println(valor);
+}
 	
 }
 
