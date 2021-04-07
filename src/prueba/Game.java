@@ -12,9 +12,9 @@ public class Game {
 	private HashMap<String, Hit> hits = new HashMap<String, Hit>();
 	private List<Reel> reels;
 
-public Game(String a) throws FileNotFoundException, IOException {
+public Game() throws FileNotFoundException, IOException {
 	this.configHits();
-	//this.configReels(a);
+	this.configReels();
 	
 }
 

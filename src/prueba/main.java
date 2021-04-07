@@ -9,14 +9,15 @@ public static void main(String[] args) throws FileNotFoundException, IOException
 		// TODO Auto-generated method stub
 		Hit q= new Hit("q");
 		q.sumarHits(2, 4);
-		Game game1= new Game("/Buffalo/src/prueba/reelConfig.txt");
-		//game1.imprimirReel();
+		Game game1= new Game();
+		game1.imprimirReel();
 		String valorAct;
 		int hitTot;
 		int jugada;
 		System.out.print(q.totalHits());
 		for (int i = 0 ; i <game1.tamanioReel(0); i++) {
-			valorAct = game1.getValor(1, i);
+		 for(int x=i; i<i+4;x++) {
+			valorAct = game1.getValor(1, x);
 			hitTot = 0;
 			jugada = 1;
 			for(int j=0; j < game1.tamanioReel(1); j++) {
@@ -24,7 +25,6 @@ public static void main(String[] args) throws FileNotFoundException, IOException
 					hitTot*=game1.reel(0).cantCoincidencias(valorAct,i);
 					hitTot*=game1.reel(1).cantCoincidencias(valorAct,j);
 					jugada=2;
-					
 					for(int k=0; k < game1.tamanioReel(2);k++) {
 						if(game1.reel(1).cantCoincidencias(valorAct,j)>0) {
 							hitTot*=game1.reel(1).cantCoincidencias(valorAct,k);
@@ -51,5 +51,6 @@ public static void main(String[] args) throws FileNotFoundException, IOException
 			}
 		}
 	}
+}	
 }
 
