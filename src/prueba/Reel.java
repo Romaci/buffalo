@@ -19,13 +19,22 @@ public void agregarValor(String valor) {
 }
 public int cantCoincidencias(String valor, int posInicial) {
 	int cant = 0;
-	for (int i=posInicial; i<(i+4); i++) {
-		if (reel.get(i)==valor) {
+	int pos = 0;
+	for (int i=posInicial; i<(posInicial+4); i++) {
+		if(reel.size()-1<i) {
+			pos=(reel.size()-i)*-1;
+		}
+		else {
+			pos=i;
+		}
+		if (reel.get(pos)==valor) {
 			cant++;
 		}
 	}
 	return cant;
 }
+
+
 public int tamanioReel() {
 	return reel.size();
 }

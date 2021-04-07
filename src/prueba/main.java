@@ -17,7 +17,7 @@ public static void main(String[] args) throws FileNotFoundException, IOException
 		System.out.print(q.totalHits());
 		for (int i = 0 ; i <game1.tamanioReel(0); i++) {
 		 for(int x=i; i<i+4;x++) {
-			valorAct = game1.getValor(1, x);
+			valorAct = game1.getValor(1, i);
 			hitTot = 0;
 			jugada = 1;
 			for(int j=0; j < game1.tamanioReel(1); j++) {

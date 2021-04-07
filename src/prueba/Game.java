@@ -10,7 +10,7 @@ import java.util.List;
 
 public class Game {
 	private HashMap<String, Hit> hits = new HashMap<String, Hit>();
-	private List<Reel> reels;
+	private List<Reel> reels = new LinkedList<Reel>();
 
 public Game() throws FileNotFoundException, IOException {
 	this.configHits();
@@ -38,20 +38,20 @@ private void configHits() {
 	
 }
 
-private void configReels() throws FileNotFoundException, IOException {
-	String archivo = "/Buffalo/src/prueba/reelConfig.txt";
-	FileReader f = new FileReader(archivo);
-    BufferedReader b = new BufferedReader(f);
-    String valor;
-	for(int i = 0; i<5;i++) {
-		Reel reel = new Reel();
-		while((valor=b.readLine())!=null & b.readLine()!= " "){
-			reel.agregarValor(valor);
-		}
-		reels.add(reel);
-   }
-    b.close();
-}
+//private void configReels() throws FileNotFoundException, IOException {
+//	String archivo = "/Buffalo/src/prueba/reelConfig.txt";
+//	FileReader f = new FileReader(archivo);
+//    BufferedReader b = new BufferedReader(f);
+//    String valor;
+//	for(int i = 0; i<5;i++) {
+//		Reel reel = new Reel();
+//		while((valor=b.readLine())!=null & b.readLine()!= " "){
+//			reel.agregarValor(valor);
+//		}
+//		reels.add(reel);
+//   }
+//    b.close();
+//}
 
 public Hit hit(String valor) {
 	return hits.get(valor);
@@ -82,9 +82,108 @@ public void imprimirReel() {
 		List<String> reelAct = this.getReel(i);
 		System.out.println(String.format("---Reel %d----",i));
 		for(int j = 0; j<reelAct.size();j++ ) {
-			System.out.print(reelAct.get(j));
+			System.out.println(reelAct.get(j));
 		}
 	}
+}
+private void configReels() {
+	Reel r1=new Reel();
+	Reel r2=new Reel();
+	Reel r3=new Reel();
+	Reel r4=new Reel();
+	Reel r5=new Reel();
+	r1.reel().add("Q");
+	r1.reel().add("P1");
+	r1.reel().add("P1");
+	r1.reel().add("P1");
+	r1.reel().add("K");
+	r1.reel().add("P1");
+	r1.reel().add("P1");
+	r1.reel().add("J");
+	r1.reel().add("Q");
+	r1.reel().add("P3");
+	r1.reel().add("P1");
+	r1.reel().add("10");
+	r1.reel().add("Q");
+	r1.reel().add("K");
+	r1.reel().add("P2");
+	r1.reel().add("J");
+	r2.reel().add("10");
+	r2.reel().add("J");
+	r2.reel().add("P2");
+	r2.reel().add("10");
+	r2.reel().add("ACE");
+	r2.reel().add("P3");
+	r2.reel().add("9");
+	r2.reel().add("10");
+	r2.reel().add("P4");
+	r2.reel().add("Q");
+	r2.reel().add("10");
+	r2.reel().add("P3");
+	r2.reel().add("P2");
+	r2.reel().add("P1");
+	r2.reel().add("ACE");
+	r2.reel().add("10");
+	r2.reel().add("P1");
+	r2.reel().add("K");
+	r3.reel().add("9");
+	r3.reel().add("P1");
+	r3.reel().add("P1");
+	r3.reel().add("P1");
+	r3.reel().add("ACE");
+	r3.reel().add("P1");
+	r3.reel().add("P1");
+	r3.reel().add("10");
+	r3.reel().add("P1");
+	r3.reel().add("9");
+	r3.reel().add("P3");
+	r3.reel().add("J");
+	r3.reel().add("P4");
+	r3.reel().add("9");
+	r3.reel().add("P3");
+	r3.reel().add("J");
+	r3.reel().add("P4");
+	r3.reel().add("9");
+	r3.reel().add("P5");
+	r3.reel().add("ACE");
+	r3.reel().add("P3");
+	r4.reel().add("k");
+	r4.reel().add("P1");
+	r4.reel().add("P1");
+	r4.reel().add("Q");
+	r4.reel().add("ACE");
+	r4.reel().add("P1");
+	r4.reel().add("P1");
+	r4.reel().add("K");
+	r4.reel().add("P1");
+	r4.reel().add("P2");
+	r4.reel().add("P1");
+	r4.reel().add("J");
+	r4.reel().add("P1");
+	r4.reel().add("P1");
+	r4.reel().add("K");	
+	r5.reel().add("Q");
+	r5.reel().add("P1");
+	r5.reel().add("P1");
+	r5.reel().add("P1");
+	r5.reel().add("K");
+	r5.reel().add("P1");
+	r5.reel().add("P1");
+	r5.reel().add("P1");
+	r5.reel().add("ACE");
+	r5.reel().add("Q");
+	r5.reel().add("P2");
+	r5.reel().add("P1");
+	r5.reel().add("P1");
+	r5.reel().add("J");
+	r5.reel().add("P1");
+	r5.reel().add("P1");
+	reels.add(r1);
+	reels.add(r2);
+	reels.add(r3);
+	reels.add(r4);
+	reels.add(r5);
+	
 }
 
 }
