@@ -13,9 +13,9 @@ public static void main(String[] args) throws FileNotFoundException, IOException
 		int hitTot;
 		int jugada;
 		for (int i = 0 ; i <game1.tamanioReel(0); i++) {
-		 for(int x=i; i<i+4;x++) {
-			valorAct = game1.getValor(1, i);
-			hitTot = 0;
+		 for(int x=i; x<x+4;x++) {
+			valorAct = game1.getValor(0, x);
+			hitTot = 1;
 			jugada = 1;
 			for(int j=0; j < game1.tamanioReel(1); j++) {
 				if(game1.reel(1).cantCoincidencias(valorAct,j)>0) {
@@ -34,6 +34,7 @@ public static void main(String[] args) throws FileNotFoundException, IOException
 										if(game1.reel(1).cantCoincidencias(valorAct,m)>0) {
 											hitTot*=game1.reel(1).cantCoincidencias(valorAct,m);
 											jugada=5;
+											Hit hit1=game1.hit(valorAct);
 											game1.hit(valorAct).sumarHits(jugada, hitTot);
 										}
 									}
